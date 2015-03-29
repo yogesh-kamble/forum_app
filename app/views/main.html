@@ -1,0 +1,13 @@
+<div class="row marketing">
+    <h4> Forums </h4>
+    <div>
+        <div class="list-group" ng-repeat="forum in forums">
+            <h3>
+                <a href="#" class="list-group-item active">{{forum.Title}}</a>
+            </h3>
+            <div>
+                <p> {{forum.CreatedTime*1000 | date:'medium'}}  {{forum.Message}}</p>
+            </div>
+        </div> 
+    </div>
+</div>
