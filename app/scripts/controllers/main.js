@@ -21,4 +21,18 @@ angular.module('forumAppFrontEndApp')
     },function(errorresponse){
         console.log(errorresponse);
     })
+
+    $scope.createForum = function(){
+        var params = {}
+        params["email"] = $scope.email;
+        params["title"] = $scope.title;
+        params["message"] = $scope.message;
+
+        var forum_ser_obj = forumFactory.get_forums();
+        forum_ser_obj.create(params, function(succesresponse){
+            alert("Forum added");
+        },function(errorresponse){
+            alert("Error in adding forum");
+        })
+    }
   });

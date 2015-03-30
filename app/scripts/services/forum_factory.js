@@ -16,11 +16,8 @@ angular.module('forumAppFrontEndApp')
 
     // Public API here
     return {
-      get_forums: function () {
-        return $resource(forumApiEndPoint+"forums", {}, {query:{method:"get", isArray:true}})
+      get_forums: function (params) {
+        return $resource(forumApiEndPoint+"forums", {}, {query:{method:"get", isArray:true}, create:{method:"post", isArray:false, params:params, headers:{"Content-Type": "application/json"}}})
       },
-      create_forum: function (params){
-          return $resource(forumApiEndPoint+"forums", {}, {query:{method:"post", params:params}})
-      }
     };
   });

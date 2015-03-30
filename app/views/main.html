@@ -1,6 +1,12 @@
 <div class="row marketing">
     <h4> Forums </h4>
     <div>
+        <form novalidate class="simple-form">
+    E-mail: <input type="email" ng-model="email" /><br />
+    Title: <input type="text" ng-model="title"/>
+    Message: <textarea ng-model="message"></textarea>
+    <input type="button" ng-click="createForum()" value="Save" />
+  </form>
         <div class="list-group" ng-repeat="forum in forums">
             <h3>
                 <a href="#" class="list-group-item active">{{forum.Title}}</a>
