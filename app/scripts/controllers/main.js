@@ -14,13 +14,17 @@ angular.module('forumAppFrontEndApp')
       'AngularJS',
       'Karma'
     ];
-    var forums_ser_obj = forumFactory.get_forums();
-    forums_ser_obj.query(function(succesresponse){
-        console.log(succesresponse);
-        $scope.forums = succesresponse;
+    function load_forums(){
+        var forums_ser_obj = forumFactory.get_forums();
+        forums_ser_obj.query(function(succesresponse){
+            console.log(succesresponse);
+            $scope.forums = succesresponse;
     },function(errorresponse){
         console.log(errorresponse);
     })
+    }
+
+    load_forums();
 
     $scope.createForum = function(){
         var params = {}
@@ -31,6 +35,10 @@ angular.module('forumAppFrontEndApp')
         var forum_ser_obj = forumFactory.get_forums();
         forum_ser_obj.create(params, function(succesresponse){
             alert("Forum added");
+            $scope.email = "";
+            $scope.title = "";
+            $scope.message = "";
+            load_forums()
         },function(errorresponse){
             alert("Error in adding forum");
         })
