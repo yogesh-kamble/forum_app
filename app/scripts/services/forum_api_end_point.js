@@ -8,4 +8,4 @@
  * Constant in the forumAppFrontEndApp.
  */
 angular.module('forumAppFrontEndApp')
-  .constant('forumApiEndPoint', 'http://intense-ogre-82-215189.apse1.nitrousbox.com:8080/');
+  .constant('forumApiEndPoint', 'https://cryptic-sands-6419.herokuapp.com/');
